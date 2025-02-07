@@ -31,6 +31,37 @@ import { Participant } from "../models/participant.js";
 //   }
 // };
 
+export const updateParticipant = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = req.body;
+
+    let user = await Participant.findById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Participant not found",
+      });
+    }
+
+    user = await Participant.findByIdAndUpdate(id, updateData, { new: true });
+
+    return res.status(200).json({
+      success: true,
+      message: "Participant updated successfully",
+      user,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: "Error: Not able to update",
+      error: error.message,
+    });
+  }
+};
+
+
 
 export const participantSignup = async(req,res) =>{
     try {

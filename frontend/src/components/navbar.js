@@ -19,6 +19,9 @@ const Navbar = () => {
               <NavLink className="nav-link" exact to="/crcLogin">CRC_LOGIN</NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" exact to="/piLogin">PI_LOGIN</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/signup">Enroll</NavLink>
             </li>
           </ul>

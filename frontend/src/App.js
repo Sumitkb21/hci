@@ -11,6 +11,8 @@ import CRCLogin from './components/crcLogin';
 import { CRCHome } from './components/crcHome';
 import EnrolledParticipants from './components/enrolledParticipants.js';
 import ShowScheduledList from './components/showScheduledList.js';
+import PILogin from './components/piLogin.js';
+import { PIHome } from './components/piHome.js';
 // import { Scheduled_List } from '../../backend/models/scheduledList.js';
 
 
@@ -30,7 +32,10 @@ function App() {
     <Route path="/crcHome" element={<CRCHome/>}/>
     <Route path="/enrolledparticipants" element={<EnrolledParticipants/>}/>
     <Route path="/scheduledList" element={<ShowScheduledList/>}/>
+    <Route path="/piLogin" element={<PILogin/>}/>
     
+    <Route path="/piHome" element={<PIHome/>}/>
+   
 
 
     </Routes>

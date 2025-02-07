@@ -68,3 +68,37 @@ export const addScheduledList = async (req, res) => {
         });
     }
 };
+
+
+
+export const removeParticipant = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      // Check if participant exists
+      const participant = await Scheduled_List.findById(id);
+      if (!participant) {
+        return res.status(404).json({
+          success: false,
+          message: "Participant not found",
+        });
+      }
+  
+      // Delete participant
+      await Scheduled_List.findByIdAndDelete(id);
+  
+      return res.status(200).json({
+        success: true,
+        message: "Participant removed successfully",
+      });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: "Error: Unable to remove participant",
+        error: error.message,
+      });
+    }
+  };
+
+  
+  
